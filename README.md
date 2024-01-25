@@ -4,7 +4,7 @@
   <img src="icon.png" width="256">
   <h1>EmojiViewer</h1>
   <p>
-    Emoji 表情查看器。拥有来自 fluentui-emoji 的 1545 个表情符号。
+    fluentui-emoji 表情查看器。拥有 1545 个 Emoji 表情符号。
   </p>
   
   <a href="https://github.com/he55/EmojiViewer/releases/latest">
