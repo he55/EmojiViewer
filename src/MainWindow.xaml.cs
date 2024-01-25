@@ -21,7 +21,8 @@ namespace EmojiViewer
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            List<EmojiAsset> assets = LoadData(@"fluentui-emoji\assets");
+            string dir = Path.GetFullPath(@"fluentui-emoji\assets");
+            List<EmojiAsset> assets = LoadData(dir);
             List<EmojiCategory> categories = assets.GroupBy(x => x.emoji.group)
                 .Select(x => new EmojiCategory { title = x.Key, assets = x.ToList() })
                 .ToList();
