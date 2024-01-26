@@ -35,7 +35,7 @@
         <StackPanel
             x:Name="header"
             Width="150"
-            Margin="10,0,10,0"
+            Margin="10,0"
             DockPanel.Dock="Right">
             <Image
                 Width="128"
@@ -47,14 +47,36 @@
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
             </Border>
+            <StackPanel>
+                <Button
+                    Tag="copyEmoji"
+                    Content="Copy Emoji"
+                    Click="Button_Click"
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch" />
+                <Button
+                    Tag="copyImage"
+                    Content="Copy Image"
+                    Click="Button_Click"
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch" />
+                <Button
+                    Tag="copyFile"
+                    Content="Copy File"
+                    Click="Button_Click"
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch" />
+                <Button
+                    Tag="openFile"
+                    Content="Open File"
+                    Click="Button_Click"
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch" />
+            </StackPanel>
             <ListBox
                 x:Name="listBox2"
                 DisplayMemberPath="name"
-                ItemsSource="{Binding items}"
-                Margin="0,0,0,5" />
-            <Button
-                Click="Button_Click"
-                Content="Open Folder" />
+                ItemsSource="{Binding items}" />
         </StackPanel>
         <Border
             Width="1"

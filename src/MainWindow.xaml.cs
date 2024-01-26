@@ -85,7 +85,24 @@ namespace EmojiViewer
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AssetItem selectedItem = (AssetItem)listBox2.SelectedItem;
-            if (selectedItem != null)
+            if (selectedItem == null)
+                return;
+
+            string tag = (string)((Button)sender).Tag;
+            if (tag == "copyEmoji")
+            {
+                Clipboard.SetText(_lastSelectedAsset.emoji.glyph);
+            }
+            else if (tag == "copyImage")
+            {
+
+            }
+            else if (tag == "copyFile")
+            {
+                string file = selectedItem.subitems[0].source;
+                Clipboard.SetFileDropList(new System.Collections.Specialized.StringCollection { file });
+            }
+            else if (tag == "openFile")
             {
                 Process.Start("explorer.exe", $"/select, \"{selectedItem.subitems[0].source}\"");
             }
