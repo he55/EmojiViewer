@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace EmojiViewer
 {
@@ -88,6 +90,8 @@ namespace EmojiViewer
             if (selectedItem == null)
                 return;
 
+            string file = selectedItem.subitems[0].source;
+
             string tag = (string)((Button)sender).Tag;
             if (tag == "copyEmoji")
             {
@@ -95,16 +99,22 @@ namespace EmojiViewer
             }
             else if (tag == "copyImage")
             {
+                BitmapImage bi = new BitmapImage();
+                bi.BeginInit();
+                bi.CacheOption = BitmapCacheOption.OnLoad;
+                bi.UriSource = new Uri(file);
+                bi.EndInit();
+                bi.Freeze();
 
+                Clipboard.SetImage(bi);
             }
             else if (tag == "copyFile")
             {
-                string file = selectedItem.subitems[0].source;
                 Clipboard.SetFileDropList(new System.Collections.Specialized.StringCollection { file });
             }
             else if (tag == "openFile")
             {
-                Process.Start("explorer.exe", $"/select, \"{selectedItem.subitems[0].source}\"");
+                Process.Start("explorer.exe", $"/select, \"{file}\"");
             }
         }
     }
