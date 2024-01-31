@@ -29,7 +29,7 @@ namespace EmojiViewer
             get
             {
                 if (_items == null)
-                    _items = AssetItemHelper.MakeItems(id);
+                    _items = AssetItemHelper.MakeItems(filePath);
                 return _items;
             }
         }

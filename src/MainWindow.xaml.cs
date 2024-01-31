@@ -51,7 +51,8 @@ namespace EmojiViewer
 
                 EmojiAsset asset = new EmojiAsset();
                 asset.emoji = emoji;
-                asset.id = dir;
+                asset.id = emoji.unicode;
+                asset.filePath = dir;
                 asset.previewImage = files[0];
                 asset.name = Path.GetFileName(dir);
                 assets.Add(asset);
