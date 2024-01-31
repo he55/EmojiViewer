@@ -21,7 +21,6 @@ namespace EmojiViewer
 
     public class EmojiAsset : INotifyPropertyChanged
     {
-        private bool _isSelected;
         private List<AssetItem> _items;
 
         public EmojiObject emoji { get; set; }
@@ -38,16 +37,6 @@ namespace EmojiViewer
         public string name { get; set; }
         public string previewImage { get; set; }
         public string filePath { get; set; }
-        public bool isSelected
-        {
-            get => _isSelected;
-            set
-            {
-                _isSelected = value;
-                OnPropertyChanged();
-            }
-        }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -72,15 +72,10 @@ namespace EmojiViewer
             EmojiAsset selectedItem = (EmojiAsset)gridView.SelectedItem;
             if (selectedItem != null)
             {
-                if (_lastSelectedAsset != null)
-                    _lastSelectedAsset.isSelected = false;
-
-                selectedItem.isSelected = true;
                 header.DataContext = selectedItem;
-                _lastSelectedAsset = selectedItem;
-
                 listBox2.SelectedIndex = selectedItem.items.Count > 1 ? 1 : 0;
                 listBox2.Visibility = selectedItem.items.Count > 1 ? Visibility.Visible : Visibility.Collapsed;
+                _lastSelectedAsset = selectedItem;
             }
         }
 
