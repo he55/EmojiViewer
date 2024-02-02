@@ -49,12 +49,14 @@ namespace EmojiViewer
                 string json = File.ReadAllText(filePath);
                 EmojiObject emoji = TinyJson.JSONParser.FromJson<EmojiObject>(json);
 
-                EmojiAsset asset = new EmojiAsset();
-                asset.emoji = emoji;
-                asset.id = emoji.unicode;
-                asset.filePath = dir;
-                asset.previewImage = files[0];
-                asset.name = Path.GetFileName(dir);
+                EmojiAsset asset = new EmojiAsset
+                {
+                    emoji = emoji,
+                    id = emoji.unicode,
+                    name = Path.GetFileName(dir),
+                    previewImage = files[0],
+                    filePath = dir
+                };
                 assets.Add(asset);
             }
 
